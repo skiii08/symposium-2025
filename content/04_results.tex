@@ -1,0 +1,32 @@
+\section{性能と評価要因の抽出}
+
+\subsection{予測性能}
+
+GLR は Test MAE が 0.656 となり, Simple Linear（0.865）比で 24\% 改善した.
+同一レビュアー内での User 寄与分散（0.581）は, 同一映画に対する Movie 寄与分散（0.285）の約 2 倍であり,
+評価が作品の一般的特徴よりもレビュアー固有の判断基準に強く依存することを示している.
+
+\subsection{評価要因の定量化とクラスタ分析}
+
+User 系列から抽出した 6 軸要因（actor, director, genre, content, interaction, background）を用いて,
+レビュアーごとの評価傾向を定量化した. 6 軸の平均ベクトルに対して K-means（$k=6$）を適用した結果,
+以下の 6 種の評価パターンが得られた:
+
+\textbf{Actor-Focused}（87 名）, 
+\textbf{Director-Focused}（130 名）, 
+\textbf{Genre-Focused}（135 名）, 
+\textbf{Content-Focused}（113 名）, 
+\textbf{Multi-Signal}（76 名）, 
+\textbf{Balanced}（194 名）.
+
+図 1 はそれぞれの 6 軸寄与を可視化したものであり,
+Actor-Focused と Director-Focused の突出した違い,
+Genre-Focused と Content-Focused の構造的対照性,
+Balanced の均衡傾向が確認できる.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\linewidth]{figures/heatmap_profiles_gray.pdf}
+\caption{6 種類の評価パターンにおける 6 軸寄与のヒートマップ}
+\label{fig:heatmap}
+\end{figure}

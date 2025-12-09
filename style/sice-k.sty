@@ -1,0 +1,107 @@
+%原稿見本作成時に使用した簡易スタイルファイル
+%
+% よろしければお使いください。ただし保証は一切しません
+%
+% プリアンブルに\usepackage{sice-k} or 、\input{sice-k.sty}として頂ければ
+% 使えると思います
+%
+%\jtitle{SICE 関西支部シンポジウム原稿の書き方 (原稿見本)}
+%\etitle{Instructions for Preparing Your Camera Ready Manuscript}
+%\jauthor{計測会社 ~ 第一 著者，{\small ○}発表 著者，~ 制御大学 ~ 第三 著者}
+%\eauthor{First  Author, Presenting Author, ~ Instrumentation Company \\
+%         Third Author, ~ Control University}
+%\englishabstract{
+%Use one side of the A4 paper.  The left margin should be 1.5cm,
+%and the top margin 2cm.  Everything should fit within the box of
+%height 25cm and width 18cm. Provide four to five keywords after the
+%abstract.  The abstract should be three to four lines long.
+% }
+%\keywords{Instrumentation, Control, Kansai Branch, Symposium manuscript}
+%
+
+\makeatletter
+\def\@citex[#1]#2{\if@filesw\immediate\write\@auxout{\string\citation{#2}}\fi
+  \def\@citea{}\@cite{\@for\@citeb:=#2\do
+    {\@citea\def\@citea{,\penalty\@m}\@ifundefined
+       {b@\@citeb}{{\bf ?}\@warning
+       {Citation `\@citeb' on page \thepage \space undefined}}%
+{\csname b@\@citeb\endcsname}}}{#1}}
+\def\@cite#1#2{\if@tempswa [#1#2]\else ${[#1]}$\fi}
+
+ \DeclareRobustCommand\cite{\unskip
+\@ifnextchar[{\@tempswatrue\@citex}{\@tempswafalse\@citex[]}}
+ \def\@cite#1#2{$^{\hbox{\scriptsize{#1\if@tempswa , #2\fi})}}$}
+ \def\@biblabel#1{#1)}
+
+\def\thebibliography#1{\section*{参考文献\markboth
+ {参 考 文 献}{参 考 文 献}}\list
+ {\arabic{enumi})}{\settowidth\labelwidth{#1)}\leftmargin\labelwidth
+ \advance\leftmargin\labelsep
+ \usecounter{enumi}}
+ \def\newblock{\hskip .11em plus .33em minus .07em}
+ \sloppy
+ \sfcode`\.=1000\relax}
+\let\endthebibliography=\endlist
+
+\def\maketitle{\par
+ \begingroup
+   \def\thefootnote{\fnsymbol{footnote}}
+   \def\@makefnmark{\hbox   
+       to 0pt{$^{\@thefnmark}$\hss}}   
+   \twocolumn[\@maketitle]   
+   \@thanks
+ \endgroup
+ \setcounter{footnote}{0}
+ \let\maketitle\relax
+ \let\@maketitle\relax
+ \gdef\@thanks{}\gdef\@englishabstract{}\gdef\@eauthor{}\gdef
+ \@jauthor{}\gdef\@etitle{}\gdef\@jtitle{}\gdef
+ \@keywords{}\let\thanks\relax}
+
+\def\@maketitle{\vbox to 90mm{\hsize\textwidth 
+  \linewidth\hsize \vskip 5mm \centering
+  {\LARGE\bf \@jtitle \par}
+  \vfil\vfil
+  {\bf \begin{tabular}[t]{c}\@jauthor \end{tabular}\par}
+  \vfil\vfil\vfil
+  {\Large\bf \@etitle \par}
+  \vfil\vfil\vfil
+  {\bf \begin{tabular}[t]{c}\@eauthor \end{tabular}\par}
+  \vfil\vfil\vfil
+  {\normalsize \parbox{150mm}{{\bf Abstract \hskip 0.8em}
+    \baselineskip=15pt \@englishabstract\par\vskip 1ex
+    {\bf Keywords: }\@keywords}}
+  \vfil\vfil\vfil\vfil\vskip 5mm}}
+
+\newcommand{\jtitle}[1]{\gdef\@jtitle{#1}}
+\newcommand{\etitle}[1]{\gdef\@etitle{#1}}
+\newcommand{\jauthor}[1]{\gdef\@jauthor{#1}}
+\newcommand{\eauthor}[1]{\gdef\@eauthor{#1}}
+\newcommand{\englishabstract}[1]{\gdef\@englishabstract{#1}}
+\newcommand{\keywords}[1]{\gdef\@keywords{#1}}
+
+\renewcommand{\@normalsize}{\@setsize\normalsize{6.8mm}\xiipt\@xiipt
+ \abovedisplayskip 10pt plus2pt minus5pt\belowdisplayskip \abovedisplayskip
+ \abovedisplayshortskip \z@ plus3pt\belowdisplayshortskip 6pt plus3pt
+ minus3pt\let\@listi\@listI} 
+\renewcommand{\footnotesize}{\@setsize\small{4.6mm}\xpt\@xpt}
+
+\def\section{\@startsection {section}{1}{\z@}{1.5ex plus 1ex minus 
+ .2ex}{0.5ex plus .2ex}{\centering \bf}}
+\def\subsection{\@startsection {subsection}{1}{\z@}{.5ex}{-2zw plus .1ex minus .2ex}{\bf}}
+\def\subsubsection{\@startsection {subsubsection}{1}{\z@}{.5ex}{-2zw plus .1ex minus .2ex}{\bf}}
+
+\twocolumn \sloppy
+\leftmargini 0pt \leftmargin\leftmargini
+\leftmarginv .5em \leftmarginvi .5em
+\flushbottom
+
+%\topmargin 0mm  \oddsidemargin -7mm  \evensidemargin -7mm
+\topmargin 0truemm  \oddsidemargin -10truemm  \evensidemargin -10truemm
+\headheight 0pt  \headsep 0truept  \footskip 0truept
+\columnseprule 0pt
+
+\parindent 4truemm \textheight 247truemm \textwidth 178truemm \columnsep 2zw
+
+\def\@oddhead{}\def\@evenhead{}\def\@oddfoot{}\def\@evenfoot{\@oddfoot}
+\makeatother

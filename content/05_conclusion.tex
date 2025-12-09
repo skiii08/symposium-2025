@@ -1,0 +1,32 @@
+\section{まとめ}
+\normalsize 
+
+本研究では, 映画評価を User・Movie・Interaction・Review の 4 系列に線形分解する枠組みを導入し, レビュアーがどの情報を基準に作品を判断しているかを安定的に抽出できることを示した. User 系列の分散が Movie 系列の 2 倍以上であったことから, 評価が作品そのものよりも個人の判断基準に強く依存することが確認され, 個性を考慮した推薦の重要性が裏付けられた.
+
+さらに, User 系列から得られる 6 軸要因に基づきクラスタ分析を行い, 俳優重視・監督重視・ジャンル重視・内容重視など 6 種の評価パターンを同定した. 効果量の分析により, これらの違いが統計的に実質的な構造を持つことも確認した.
+
+本手法により, ユーザーが「何を理由に映画を評価しているか」を系列単位で把握できるため, 従来の属性ベース推薦に加え, 各ユーザーの判断軸に即した説明生成が可能となる. 今後は, 要因構造を推薦アルゴリズムへ直接反映し, ユーザーの評価スタイルに応じて推薦重みを動的に切り替える仕組みの構築を進めるとともに, 自身の評価軸を理解しながら作品を探索できるインタラクティブな UI の実現を目指す.
+
+\begin{thebibliography}{99}
+
+\bibitem{Zhang2020}
+Y.~Zhang and X.~Chen:
+Explainable Recommendation: A Survey and New Perspectives,
+\textit{Foundations and Trends in Information Retrieval}, 14(1), 1--101 (2020).
+
+\bibitem{Pan2020}
+D.~Pan, et al.:
+Explainable Recommendation via Interpretable Feature Mapping,
+\textit{Proceedings of IJCAI 2020}, 2690--2696 (2020).
+
+\bibitem{Tintarev2024}
+N.~Tintarev, et al.:
+A Survey of Explainable Recommender Systems,
+\textit{Computer Science \& Information Technology}, 14, 159--175 (2024).
+
+\bibitem{Murakami2014}
+村上:
+テキストマイニングとネットワーク分析を用いた映画評価の分析,
+\textit{経営論集}, 29(2), 26--40 (2014).
+
+\end{thebibliography}
