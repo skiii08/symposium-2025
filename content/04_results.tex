@@ -8,21 +8,24 @@ GLR は Test MAE が 0.656 となり, Simple Linear（0.865）比で 24\% 改善
 
 \subsection{評価要因の定量化とクラスタ分析}
 
-User 系列から抽出した 6 軸要因（actor, director, genre, content, interaction, background）を用いて,
-レビュアーごとの評価傾向を定量化した. 6 軸の平均ベクトルに対して K-means（$k=6$）を適用した結果,
-以下の 6 種の評価パターンが得られた:
+User 系列から抽出した 6 軸要因（actor, director, genre, content,
+interaction, background）に基づき K-means（$k=6$）で評価傾向を分類した．
+得られた 6 パターンは次の通りである：
 
-\textbf{Actor-Focused}（87 名）, 
-\textbf{Director-Focused}（130 名）, 
-\textbf{Genre-Focused}（135 名）, 
-\textbf{Content-Focused}（113 名）, 
-\textbf{Multi-Signal}（76 名）, 
-\textbf{Balanced}（194 名）.
+・Actor-Focused（87 名）：俳優寄与が突出し，出演者に強く反応する  
 
-図 1 はそれぞれの 6 軸寄与を可視化したものであり,
-Actor-Focused と Director-Focused の突出した違い,
-Genre-Focused と Content-Focused の構造的対照性,
-Balanced の均衡傾向が確認できる.
+・Director-Focused（130 名）：監督の作家性や演出傾向を主要判断基準とする  
+
+・Genre-Focused（135 名）：作品のジャンル構造に敏感で，類型的特徴を重視する  
+
+・Content-Focused（113 名）：内容・テーマ・物語的要素を中心に評価する  
+
+・Multi-Signal（76 名）：複数軸を組み合わせて総合的に判断する  
+
+・Balanced（194 名）：6 軸が均衡しており特定要素への偏りが小さい
+
+図1 は各クラスタの 6 軸寄与を可視化したもので，Actor/Director の優位性，
+Genre/Content の対照性，Balanced の均衡構造など，特徴的な差異が確認できる．
 
 \begin{figure}[htbp]
 \centering
